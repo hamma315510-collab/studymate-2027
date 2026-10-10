@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyMate 2027 | Mon espace de réussite</title>
+
+    <meta
+        name="description"
+        content="Un espace personnel pour organiser ses révisions, suivre ses objectifs et préparer le bac 2027."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+        <nav class="navbar container">
+            <a href="#accueil" class="logo">
+                Study<span>Mate.</span>
+                <small>2027</small>
+            </a>
+
+            <div class="nav-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#planning">Planning</a>
+                <a href="#taches">Mes tâches</a>
+                <a href="#pomodoro">Concentration</a>
+                <a href="#motivation">Motivation</a>
+                
+<button
+    type="button"
+    class="theme-toggle"
+    id="themeToggle"
+    aria-label="Activer le mode sombre"
+    title="Changer le thème"
+>
+    🌙
+</button>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ACCUEIL -->
+        <section class="hero container" id="accueil">
+
+            <div class="hero-content">
+                <span class="eyebrow">
+                    MON ESPACE PERSONNEL · BAC 2027
+                </span>
+
+                <h1>
+                    Chaque jour est<br>
+                    une <span>nouvelle chance.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Organise tes révisions, avance à ton rythme
+                    et donne le meilleur de toi-même.
+                    Chaque petit effort compte.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#planning" class="primary-btn">
+                        Organiser mes révisions
+                        <span>↗</span>
+                    </a>
+
+                    <a href="#taches" class="secondary-btn">
+                        Voir mes objectifs
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span class="note-icon">✿</span>
+                    <p>
+                        Un pas après l'autre, avec patience et confiance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="decor decor-top">✦</div>
+                <div class="decor decor-bottom">✿</div>
+
+                <div class="hero-card">
+                    <div class="hero-card-top">
+                        <span class="status-dot"></span>
+                        <span>MON OBJECTIF</span>
+                    </div>
+
+                    <div class="hero-card-icon">📚</div>
+
+                    <h2>Réussir mon bac</h2>
+
+                    <p>
+                        Construire ma réussite, une séance à la fois.
+                    </p>
+
+                    <div class="hero-card-divider"></div>
+
+                    <div class="hero-card-footer">
+                        <span>Promotion</span>
+                        <strong>2027</strong>
+                    </div>
+                </div>
+
+                <div class="floating-note">
+                    <span>♡</span>
+                    <div>
+                        <strong>Tu avances !</strong>
+                        <small>Continue à croire en toi.</small>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- COMPTE À REBOURS -->
+        <section class="countdown-section container">
+            <div class="countdown-card">
+                <div class="countdown-icon">✧</div>
+
+                <div class="countdown-copy">
+                    <p class="eyebrow">CHAQUE JOUR COMPTE</p>
+                    <h2>Le chemin vers 2027</h2>
+                    <p>
+                        Profite de chaque journée pour progresser.
+                    </p>
+                </div>
+
+                <div class="countdown-number">
+                    <span id="daysLeft">0</span>
+                    <small>jours avant 2027</small>
+                </div>
+            </div>
+        </section>
+
+<!-- DASHBOARD INTELLIGENT -->
+<section class="dashboard-section container" id="dashboard">
+
+    <div class="section-heading">
+        <p class="eyebrow">MON ESPACE DE RÉUSSITE</p>
+        <h2>Mon tableau de bord</h2>
+        <p>Un aperçu de tes efforts et de ton organisation.</p>
+    </div>
+
+    <div class="dashboard-grid">
+
+        <article class="dashboard-card">
+            <div class="dashboard-card-top">
+                <span class="dashboard-icon">✓</span>
+                <span class="dashboard-label">MES TÂCHES</span>
+            </div>
+
+            <p class="dashboard-number" id="dashboardTasksDone">0/0</p>
+            <p class="dashboard-description">Tâches terminées</p>
+        </article>
+
+        <article class="dashboard-card">
+            <div class="dashboard-card-top">
+                <span class="dashboard-icon">▦</span>
+                <span class="dashboard-label">MON PLANNING</span>
+            </div>
+
+            <p class="dashboard-number" id="dashboardSessions">0</p>
+            <p class="dashboard-description">Séances programmées</p>
+        </article>
+
+        <article class="dashboard-card dashboard-progress-card">
+            <div class="dashboard-card-top">
+                <span class="dashboard-icon">↗</span>
+                <span class="dashboard-label">MA PROGRESSION</span>
+            </div>
+
+            <p class="dashboard-number">
+                <span id="dashboardProgress">0</span>%
+            </p>
+
+            <div class="dashboard-progress-track">
+                <div
+                    class="dashboard-progress-fill"
+                    id="dashboardProgressBar"
+                ></div>
+            </div>
+
+            <p
+                class="dashboard-description"
+                id="dashboardProgressText"
+            >
+                Commence ta première tâche !
+            </p>
+        </article>
+
+    </div>
+
+    <div class="dashboard-message">
+        <span class="dashboard-message-icon">♡</span>
+
+        <div>
+            <h3>Ton petit bilan</h3>
+            <p id="dashboardMessage">
+                Chaque petit effort compte. Commence à ton rythme !
+            </p>
+        </div>
+    </div>
+
+</section>
+        <!-- PLANNING HEBDOMADAIRE -->
+        <section class="section container" id="planning">
+
+            <div class="section-heading">
+                <p class="eyebrow">JE M'ORGANISE</p>
+
+                <h2>Mon planning de la semaine</h2>
+
+                <p>
+                    Organise tes séances de révision
+                    et avance à ton rythme.
+                </p>
+
+                <p class="arabic-note" dir="rtl">
+             good luck 🌸
+                </p>
+            </div>
+
+            <div class="weekly-planner">
+
+                <div class="planner-header">
+                    <div>
+                        <p class="planner-label">MA SEMAINE</p>
+                        <h3>Mon programme de révision</h3>
+                    </div>
+
+                    <span class="planner-badge">Bac 2027</span>
+                </div>
+
+                <form id="planningForm" class="planning-form">
+
+                    <div class="form-group">
+                        <label for="studyDay">Jour</label>
+
+                        <select id="studyDay" required>
+                            <option value="Lundi">Lundi</option>
+                            <option value="Mardi">Mardi</option>
+                            <option value="Mercredi">Mercredi</option>
+                            <option value="Jeudi">Jeudi</option>
+                            <option value="Vendredi">Vendredi</option>
+                            <option value="Samedi">Samedi</option>
+                            <option value="Dimanche">Dimanche</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studySubject">Matière</label>
+
+                        <input
+                            type="text"
+                            id="studySubject"
+                            placeholder="Ex. : Mathématiques"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studyTime">Heure</label>
+
+                        <input
+                            type="time"
+                            id="studyTime"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studyTask">Objectif</label>
+
+                        <input
+                            type="text"
+                            id="studyTask"
+                            placeholder="Ex. : Réviser un chapitre"
+                            required
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-btn add-planning-btn"
+                    >
+                        + Ajouter au planning
+                    </button>
+
+                </form>
+
+                <div id="planningList" class="planning-list">
+                    <p class="empty-planning">
+                        Ton planning t'attend.
+                        Ajoute ta première séance ! ✿
+                    </p>
+                </div>
+
+                <p class="planner-footer" dir="rtl">
+                    good luck 🌸
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- MES TÂCHES -->
+        <section class="section tasks-section" id="taches">
+
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">MES PETITES VICTOIRES</p>
+
+                    <h2>Mes objectifs du jour</h2>
+
+                    <p>
+                        Chaque tâche terminée est un pas en avant.
+                    </p>
+                </div>
+
+                <div class="tasks-box">
+
+                    <div class="tasks-header">
+                        <div>
+                            <h3>Ma liste de tâches</h3>
+                            <p>Avance une tâche après l'autre.</p>
+                        </div>
+
+                        <span class="tasks-icon">✓</span>
+                    </div>
+
+                    <div class="task-list">
+
+                        <label class="task">
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-text">
+                                Réviser une leçon
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-text">
+                                Faire des exercices
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-text">
+                                Relire mes notes
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox">
+                            <span class="custom-checkbox"></span>
+                            <span class="task-text">
+                                Préparer les objectifs de demain
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <div class="progress-area">
+                        <div class="progress-label">
+                            <span>Ma progression</span>
+                            <span id="taskMessage">
+                                0 tâche terminée sur 4
+                            </span>
+                        </div>
+
+                        <div
+                            class="progress-track"
+                            role="progressbar"
+                            aria-label="Progression des tâches"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                        >
+                            <div
+                                class="progress-bar"
+                                id="taskProgress"
+                            ></div>
+                        </div>
+                    </div>
+
+                    <p class="tasks-footer">
+                        ✨ La régularité fait la différence.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- POMODORO -->
+        <section class="section container" id="pomodoro">
+
+            <div class="section-heading">
+                <p class="eyebrow">JE RESTE CONCENTRÉE</p>
+
+                <h2>Mon moment de concentration</h2>
+
+                <p>
+                    Une séance à la fois. Prends aussi le temps de respirer.
+                </p>
+            </div>
+
+            <div class="pomodoro-card">
+
+                <div class="pomodoro-top">
+                    <span class="pomodoro-icon">◷</span>
+
+                    <span class="pomodoro-badge">
+                        MÉTHODE POMODORO
+                    </span>
+                </div>
+
+                <p id="pomodoroMode" class="pomodoro-mode">
+                    Temps de concentration
+                </p>
+
+                <div
+                    id="pomodoroDisplay"
+                    class="pomodoro-display"
+                    role="timer"
+                    aria-live="off"
+                >
+                    25:00
+                </div>
+
+                <p class="pomodoro-description">
+                    25 minutes de travail, puis 5 minutes de pause.
+                </p>
+
+                <div class="pomodoro-controls">
+
+                    <button
+                        type="button"
+                        id="pomodoroStart"
+                        class="primary-btn"
+                    >
+                        ▶ Démarrer
+                    </button>
+
+                    <button
+                        type="button"
+                        id="pomodoroPause"
+                        class="secondary-btn"
+                        disabled
+                    >
+                        Ⅱ Pause
+                    </button>
+
+                    <button
+                        type="button"
+                        id="pomodoroReset"
+                        class="reset-btn"
+                    >
+                        ↺ Réinitialiser
+                    </button>
+
+                </div>
+
+                <div class="pomodoro-tip">
+                    <span>♡</span>
+
+                    <p>
+                        Éloigne les distractions et concentre-toi
+                        sur une seule tâche.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- MOTIVATION -->
+        <section class="section motivation-section" id="motivation">
+
+            <div class="container">
+                <div class="motivation-card">
+
+                    <div class="motivation-decoration">✧</div>
+
+                    <p class="eyebrow">UN PETIT MOT POUR TOI</p>
+
+                    <h2>Continue à croire en toi.</h2>
+
+                    <p
+                        id="motivationMessage"
+                        class="motivation-message"
+                        aria-live="polite"
+                    >
+                        Crois en tes efforts.
+                        Les petits progrès construisent les grandes réussites.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="motivationBtn"
+                        class="motivation-btn"
+                    >
+                        Un peu de motivation ♡
+                    </button>
+
+                    <p class="motivation-arabic" dir="rtl">
+                        وما توفيقي إلا بالله
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <a href="#accueil" class="logo footer-logo">
+                Study<span>Mate.</span>
+                <small>2027</small>
+            </a>
+
+            <p>
+                Fait avec soin, pour accompagner chaque petit progrès. ♡
+            </p>
+
+            <a href="#accueil" class="back-to-top">
+                Retour en haut ↑
+            </a>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 StudyMate 2027 · Un jour à la fois.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
